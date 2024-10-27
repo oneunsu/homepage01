@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Page</title>
+    <!-- Google Fonts: Noto Sans and Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome 아이콘 사용 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1 class="logo-text">MY GOAL</h1>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="buttons">
+        <a href="oneunsu1.html" class="nav-button">HOME</a>
+        <a href="about.html" class="nav-button">ABOUT</a>
+        <a href="career.html" class="nav-button">CAREER</a>
+        <a href="goal.html" class="nav-button">GOAL</a>
+    </div>
+
+    <div class="slider-container">
+        <button class="slider-btn prev-btn" onclick="prevSlide()">&#9664;</button>
+        
+        <div class="slider">
+            <div class="slide active">
+                <div class="icon"><i class="fas fa-pencil-alt"></i></div>
+                <div class="goal">좋은 학점 유지</div>
+                <div class="details">대학 생활 4년동안 꾸준한 노력을</div>
+                <div class="details">통해 좋은 학점을 계속 유지해</div>
+                <div class="details">나가고 싶습니다.</div>
+            </div>
+            <div class="slide">
+                <div class="icon"><i class="fas fa-users"></i></div>
+                <div class="goal">수많은 경험</div>
+                <div class="details">대학 생활을 통해 공부 뿐만 아니라</div>
+                <div class="details">대외 활동, 해외 연수 등</div>
+                <div class="details">다양한 경험을 하고 싶습니다.</div>
+            </div>
+            <div class="slide">
+                <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="goal">대학원 진학</div>
+                <div class="details">스마트팜학과를 졸업하고</div>
+                <div class="details">연구원이 되는 것이 꿈이기에</div>
+                <div class="details">꿈을 위해 필요한 대학원에 진학하고 싶습니다.</div>
+            </div>
+            <div class="slide">
+                <div class="icon"><i class="fas fa-flask"></i></div>
+                <div class="goal">좋은 연구원 되기</div>
+                <div class="details">공부를 열심히 하고</div>
+                <div class="details">많은 경험을 쌓은 뒤</div>
+                <div class="details">스마트팜을 연구하는</div>
+                <div class="details">좋은 연구원이 되고 싶습니다.</div>
+            </div>
+        </div>
+        
+        <button class="slider-btn next-btn" onclick="nextSlide()">&#9654;</button>
+    </div>
+
+      
+    <script src="script.js"></script>
+</body>
+</html>

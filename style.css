@@ -1,0 +1,493 @@
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F2E3D5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* relative를 추가하여 header가 위치하도록 설정 */
+}
+
+/* 텍스트 컨테이너 */
+.container {
+    text-align: center;
+}
+
+/* 필기체 폰트 적용 */
+.welcome-text {
+    font-family: 'Pacifico', cursive; /* 필기체 폰트 적용 */
+    font-size: 72px; /* 글씨 크기 */
+    color: #012E40;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 부드러운 그림자 */
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    padding-right: 10px;
+    padding-bottom: 50px;
+    animation: typing 1.5s steps(30, end) forwards; /* 커서 없이 글자만 타이핑 */
+    transition: transform 2s ease, opacity 2s ease; /* 서서히 올라가며 투명도 변화, 2초 동안 */
+    opacity: 1; /* 기본 상태에서 불투명 */
+}
+
+/* 타이핑 애니메이션 */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* 서서히 올라가게 하는 애니메이션 */
+.welcome-text.move-up {
+    transform: translateY(-100px); /* 텍스트를 서서히 30px 위로 이동 */
+    opacity: 0.9; /* 서서히 살짝 더 흐리게 */
+}
+
+/* 'Jang Eunsu's Homepage' 문구 스타일 */
+.homepage-text {
+    font-family: 'Lato', sans-serif; /* 깔끔한 고딕체 */
+    font-size: 24px; /* 글자 크기 */
+    font-weight: 600;
+    color: #026773;
+    opacity: 0; /* 처음엔 보이지 않음 */
+    transition: opacity 2s ease; /* 페이드인 효과 */
+    margin-top: -160px; /* 위 문구와 여백을 줄임 */
+    letter-spacing: 15px; /* 글자 사이 여백을 5px로 설정 */
+}
+
+/* 상단 왼쪽에 'JANG EUNSU' 문구 추가 */
+.header {
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0s ease, visibility 0s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2)
+}
+
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 5px; /* 글자 사이 여백 증가 */
+    color: #026773;
+}
+
+/* 소셜 아이콘 스타일 */
+.social-icons {
+    margin-top: 20px;
+    position: absolute;
+    bottom: 20px; /* 페이지 하단에 배치 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    opacity: 0; /* 초기 상태에서 보이지 않음 */
+    transition: opacity 2s ease;
+}
+
+.social-icons a {
+    text-decoration: none;
+    margin: 0 20px; /* 아이콘 간 간격 */
+    color: #026773;
+    font-size: 30px; /* 아이콘 크기 */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #3CA6A6; /* 마우스를 올렸을 때 색상 변화 */
+    transform: scale(1.2); /* 살짝 확대되는 효과 */
+}
+
+/* 이메일 아이콘 상단에 이메일 주소가 나타나는 스타일 */
+#email-display {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute;
+    bottom: 80px; /* 아이콘 위로 띄우기 위해 조정 */
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Lato', cursive;
+    font-size: 24px;
+    color: #012E40;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 이메일 아이콘에 마우스를 올렸을 때 이메일을 표시 */
+.email-icon:hover ~ #email-display {
+    display: block; /* 마우스 오버 시 이메일 표시 */
+}
+
+/* 페이드인 애니메이션 */
+.homepage-text.fade-in, .social-icons.fade-in, header.fade-in {
+    opacity: 1; /* 페이드인 시 완전히 보임 */
+}
+
+/* 'JANG EUNSU' 문구 나타남 (페이드인 없이 함께 나타남)*/
+.homepage-text.fade-in ~ .header,
+.social-icons.fade-in ~ .header {
+    opacity: 1;
+    visibility: visible;
+    transition: none; /* 애니메이션 없이 즉시 나타남*/
+}
+
+/* 버튼 스타일 */
+.buttons {
+    position: absolute;
+    top: 40px; /* 상단에 위치 */
+    right: 20px; /* 오른쪽에 위치 */
+    opacity: 0; /* 초기 상태에서 보이지 않음 */
+    visibility: hidden; /* 숨김 */
+}
+
+.nav-button {
+    font-family: 'Poppins', sans-serif;
+    background: none; /* 배경 없음 */
+    border: none; /* 테두리 없음 */
+    font-size: 20px; /* 글자 크기 */
+    color: #026773; /* 글자 색상 */
+    cursor: pointer; /* 커서 포인터 */
+    margin-left: 10px; /* 버튼 간 간격 */
+    transition: background-color 0.3s; /* 배경 색상 전환 효과 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+.nav-button:hover {
+    background-color: #026773; /* 마우스를 올렸을 때 배경 색상 */
+    color: #F2E3D5; /* 마우스를 올렸을 때 글자 색상 */
+    border-radius: 15px; /* 둥근 모서리 */
+}
+
+/* 버튼도 'JANG EUNSU'와 함께 나타나도록 설정 */
+.buttons.fade-in {
+    opacity: 1; /* 보이도록 설정 */
+    visibility: visible; /* 보임 상태로 변경 */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F2E3D5; /* 배경색 */
+    margin: 0;
+}
+
+/* 원 컨테이너 스타일 */
+.circle-container {
+    position: relative;
+}
+
+/* 원 기본 스타일 */
+.circle {
+    position: absolute; /* 절대 위치 설정 */
+    border-radius: 50%; /* 원형 */
+}
+
+/* 가장 큰 원 */
+.circle.large {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at bottom left, #026773, #3CA6A6); /* 그라데이션 색상 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(30%, -50%); /* 중앙 정렬 */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* 선명한 그림자 추가 */
+    z-index: 2;
+    overflow: hidden; /* 원 밖으로 이미지가 나가지 않도록 설정 */
+}
+
+/* 사진 스타일 */
+.centered-image {
+    width: 100%; /* 원의 넓이에 맞게 조정 */
+    height: auto; /* 비율 유지 */
+    position: absolute; /* 절대 위치 설정 */
+    bottom: 0; /* 하단 맞춤 */
+    left: 50%; /* 중앙 정렬 */
+    transform: translateX(-50%); /* 중앙 정렬을 위한 이동 */
+}
+
+
+/* 첫 번째 작은 원 */
+.circle.small-1 {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at bottom right, #026773, #012E40); /* 그라데이션 색상 */
+    transform: translate(700%, -50%) translate(-120px, -120px); /* 약간 겹치도록 조정 */
+}
+
+/* 두 번째 작은 원 */
+.circle.small-2 {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at bottom right, #024959, #3CA6A6); /* 그라데이션 색상 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -50%) translate(110px, 110px); /* 약간 겹치도록 조정 */
+    z-index: 3;
+}
+
+/* 세 번째 작은 원 */
+.circle.small-3 {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at bottom left, #3CA6A6, #024959); /* 그라데이션 색상 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(150%, -50%) translate(130px, -120px); /* 약간 겹치도록 조정 */
+    z-index: 1;
+}
+
+/* 텍스트 스타일 */
+.text-left, .text-right {
+    position: absolute;
+    font-weight: 1000;
+    font-size: 80px;
+    color: transparent; /* 기본 텍스트 색상 제거 */
+    background: linear-gradient(45deg, #3CA6A6, #024959); /* 원하는 그라데이션 색상 */
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.text-left {
+    left: 9%; /* 중앙 원의 왼쪽에 위치 */
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2)
+}
+
+.text-right {
+    right: 6%; /* 중앙 원의 오른쪽에 위치 */
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: left;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2)
+}
+
+/* 문구 스타일 */
+.intro-text {
+    text-align: center;
+    margin-top: 500px; /* 원 아래에 충분한 여백 추가 */
+}
+
+/* 큰 텍스트 */
+.large-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px; /* 큰 텍스트 크기 */
+    font-weight: 700; /* 굵은 폰트 */
+    margin: 5px 0;
+    color: #012E40;
+}
+
+/* 작은 텍스트 */
+.small-text {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px; /* 작은 텍스트 크기 */
+    font-weight: 400; /* 기본 폰트 두께 */
+    margin: 3px 0;
+    color: #024959; /* 작은 텍스트 색상 */
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px 0;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(to top, #024959, #3CA6A6);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 50px 0;
+}
+
+.timeline-item.left {
+    justify-content: flex-start; /* 카드가 왼쪽에 배치되도록 */
+}
+
+.timeline-item.right {
+    justify-content: flex-end; /* 카드가 오른쪽에 배치되도록 */
+}
+
+.card {
+    background: radial-gradient(circle at bottom left, #026773, #3CA6A6); ;
+    padding: 4px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 350px;
+    height: 120px;
+}
+
+.card .content {
+    background: #F2E3D5; /* 카드 내부의 배경색 */
+    padding: 2em;
+    border-radius: 6px; /* 내부 배경을 위한 둥근 모서리, 외부와 맞추기 위해 작은 값 */
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    background: #026773;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-item.left .circle {
+    right: -10px; /* 왼쪽 카드의 원 위치 */
+}
+
+.timeline-item.right .circle {
+    left: -10px; /* 오른쪽 카드의 원 위치 */
+}
+
+.content h2 {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    font-size: 1.2em;
+    color: #012E40;
+}
+
+.content p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 0.9em;
+    color: #024959;
+    margin-top: 0.3em;
+    margin-bottom: 0;
+}
+
+.date {
+    font-family: 'Poppins', sans-serif; /* Poppins 폰트 적용 */
+    font-size: 60px; /* 글자 크기 설정 */
+    font-weight: 600; /* 글자 두께 설정 */
+    color: transparent; /* 글자 색상 투명하게 */
+    background: linear-gradient(45deg, #3CA6A6, #024959); /* 그라데이션 배경 */
+    -webkit-background-clip: text; /* 텍스트에 배경을 클립 */
+    background-clip: text; /* 텍스트에 배경을 클립 */
+    position: absolute; /* 절대 위치 설정 */
+    top: 50%; /* 필요에 따라 조정 */
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.timeline-item.left .date {
+    left: calc(100% + 10px); /* 왼쪽 카드 오른쪽에 위치 */
+    transform: translateY(-50%); /* 세로 중앙 정렬 */
+}
+
+.timeline-item.right .date {
+    right: calc(100% + 10px); /* 오른쪽 카드 왼쪽에 위치 */
+    transform: translateY(-50%); /* 세로 중앙 정렬 */
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 95%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    padding: 0 80px;
+}
+
+.slide {
+    min-width: 300px;
+    height: 400px;
+    margin: 0 10px;
+    background-color: #ddd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* 아이콘과 텍스트를 세로로 배치 */
+    position: relative; /* 자식 요소를 위해 상대 위치 설정 */
+    transition: transform 0.5s ease, opacity 0.5s ease, background 0.5s ease; /* 배경 전환 추가 */
+    opacity: 0.5;
+    transform: scale(0.8);
+}
+
+.slide.active {
+    transform: scale(1);
+    opacity: 1;
+    font-size: 2em;
+    background: linear-gradient(135deg, #026773, #3CA6A6)
+}
+
+.icon {
+    position: absolute; /* 절대 위치로 설정 */
+    top: 20%; /* 슬라이드의 중앙에 위치하도록 조정 */
+    left: 50%; /* 슬라이드의 중앙에 위치하도록 조정 */
+    transform: translate(-50%, -50%); /* 원을 중앙으로 이동 */
+    background-color: white; /* 흰색 배경 */
+    border-radius: 50%; /* 원 형태 */
+    width: 80px; /* 원의 너비 */
+    height: 80px; /* 원의 높이 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+
+.slider-btn {
+    font-size: 2em;
+    cursor: pointer;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.goal {
+    margin-top: 60px; /* 아이콘 아래 여백 */
+    font-size: 1.2em; /* 목표 텍스트 크기 */
+    font-weight: bold; /* 목표 텍스트 두껍게 */
+    font-family: Noto Sans, sans-serif;
+    color: #F2E3D5;
+}
+
+.details {
+    margin-top: 5px; /* 세부사항 위 여백 */
+    font-size: 0.6em; /* 세부사항 텍스트 크기 */
+    color: #ddd; /* 세부사항 텍스트 색상 */
+    font-family: Noto Sans, sans-serif;
+    text-align: center;
+}
