@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // HOME 페이지의 애니메이션
-    if (window.location.pathname.endsWith('oneunsu1.html')) { // HOME 페이지 확인
+    if (window.location.pathname.endsWith('index.html')) { // HOME 페이지 확인
         // 타이핑 애니메이션이 끝났을 때 0.5초 후 서서히 더 많이 위로 이동
         textElement.addEventListener('animationend', function(event) {
             if (event.animationName === 'typing') {
